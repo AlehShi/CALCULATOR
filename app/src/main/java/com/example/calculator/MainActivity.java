@@ -138,7 +138,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
+//проверка
 
     // действие по кнопкам цифр и "."
     private void btnNumAction(View view) {
