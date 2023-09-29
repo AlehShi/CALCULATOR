@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="MyTextStyle" >
+        <item name="android:textSize">20sp</item>
+        <item name="android:typeface">monospace</item>
+        <item name="android:layout_width">match_parent</item>
+
+    </style>
+
+    <style name="ButtonsStyle" >
+        <item name="android:layout_height">80dp</item>
+        <item name="android:backgroundTint">#304FFE</item>
+        <item name="android:textSize">20dp</item>
+        <item name="android:layout_marginRight">4dp</item>
+    </style>
+
+</resources>
