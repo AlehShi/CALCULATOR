@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     String result = "0";
     boolean isDouble=false;
     boolean isNegative=false;
+    boolean isNewResult=false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -146,14 +147,18 @@ public class MainActivity extends AppCompatActivity {
         String number = btn.getText().toString();
         String currentText = textCurrent.getText().toString();
         textCurrent.setText(textCurrent.getText() + number);
-       // String currentText = textCurrent.getText().toString();
-        if (currentText.equals("0")&&(!number.equals("."))) {
-            textCurrent.setText(number);
-            textOperation.setText(textOperation.getText() + number);
-        } else
-        {
-            textOperation.setText(textOperation.getText() + number);
-        }
+//        if (isNewResult) {
+//            textCurrent.setText(number);
+//            isNewResult=false;
+//            textOperation.setText("");
+        //}
+            if (currentText.equals("0") && (!number.equals("."))) {
+                textCurrent.setText(number);
+                textOperation.setText(textOperation.getText() + number);
+            } else {
+                textOperation.setText(textOperation.getText() + number);
+            }
+
     }
     private void btnOperAction(View view){
         Button btn = (Button) view;
@@ -162,7 +167,7 @@ public class MainActivity extends AppCompatActivity {
         String str=textOperation.getText().toString();
         textCurrent.setText("0");
         boolean lastIsOper=false;
-        str=str.substring(str.length() , 1);
+        str=str.substring(str.length()-1 , str.length());
         for(int i=0; i<buttonsOper.length; i++) {
             if (str.equals(buttonsOper[i].getText().toString())) {
                 lastIsOper=true;
@@ -201,16 +206,20 @@ public class MainActivity extends AppCompatActivity {
         }
             textResult.setText(result);
 
-
       switch (operation){
             case "=":
-                textOperation.append(result);
+                textOperation.setText(result);
                 textCurrent.setText(result);
+         //       isNewResult=true;
                 break;
             case "+":
                 operand1=number;
                 operand2="0";
                 break;
+          default:
+              operand1=number;
+              operand2="0";
+              break;
         }
 
         prevOperation=operation;
